@@ -29,7 +29,7 @@ struct TranslationHistoryView: View {
                                 .foregroundColor(.gray)
                         }
                     }
-                    .onDelete(perform: removeTranslations) // Swipe to delete individual translations
+                    .onDelete(perform: removeTranslations) 
                 }
             }
             Button("Erase All History") {

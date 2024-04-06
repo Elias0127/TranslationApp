@@ -12,6 +12,9 @@ struct ContentView: View {
     @State private var translatedText: String = ""
     @State private var translationHistory: [Translation] = []
     @StateObject private var firestoreManager = FirestoreManager()
+    @State private var selectedSourceLanguage = "English"
+    @State private var selectedTargetLanguage = "Spanish"
+    let languages = ["English", "Spanish", "Amharic", "French", "German", "Italian"]
     
     var body: some View {
         NavigationView {
@@ -27,10 +30,28 @@ struct ContentView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal)
 
+                Picker("Source Language", selection: $selectedSourceLanguage) {
+                    ForEach(languages, id: \.self) { language in
+                        Text(language).tag(language)
+                    }
+                }
+                .pickerStyle(MenuPickerStyle())
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal)
+
+                Picker("Target Language", selection: $selectedTargetLanguage) {
+                    ForEach(languages, id: \.self) { language in
+                        Text(language).tag(language)
+                    }
+                }
+                .pickerStyle(MenuPickerStyle())
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal)
+
                 Button(action: {
-                    NetworkManager.shared.translate(text: originalText) { translatedText in
+                    NetworkManager.shared.translate(text: originalText, from: selectedSourceLanguage, to: selectedTargetLanguage) { translatedText in
+                        self.translatedText = translatedText ?? "Translation failed"
                         DispatchQueue.main.async {
-                            self.translatedText = translatedText ?? "Translation failed"
                             let newTranslation = Translation(originalText: self.originalText, translatedText: self.translatedText)
                             self.firestoreManager.addTranslation(newTranslation)
                             self.translationHistory.insert(newTranslation, at: 0)
@@ -44,6 +65,8 @@ struct ContentView: View {
                         .cornerRadius(10)
                 }
                 .padding(.horizontal)
+
+
 
                 Text(translatedText)
                     .padding()
