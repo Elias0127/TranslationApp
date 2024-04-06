@@ -26,10 +26,11 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented user stories:
+Here's a walkthrough of the app:
 
 
-[Guide]] <img src='https://github.com/Elias0127/TranslationApp/assets/86494198/ac7e59bf-0cca-4d60-bb09-6ef41f57ecb4' title='Video Demo' width='200' alt='Video Demo' /> .
+<img src='https://github.com/Elias0127/TranslationApp/assets/86494198/ac7e59bf-0cca-4d60-bb09-6ef41f57ecb4' title='Video Demo' width='200' alt='Video Demo' /> .
+
 ![For more](https://jmp.sh/GczDUEIp)
 
 
