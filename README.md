@@ -1,8 +1,8 @@
-# Project 6 - **Translate Me**
+# Project 6 - **TranslateMe**
 
 Submitted by: **TranslationAppe**
 
-**Translate Me** is an app that translates texts to different languages
+**TranslateMe** is an app that translates texts to different languages
 
 Time spent: **7** hours spent in total
 
